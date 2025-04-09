@@ -6,7 +6,7 @@ console.log(dateTime);
 
 const http = require('http');
 
-const hostname = '0.0.0.0';
+const hostname = 'localhost';
 const port = 8083;
 
 const server = http.createServer((req, res) => {

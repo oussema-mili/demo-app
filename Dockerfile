@@ -1,10 +1,7 @@
-FROM node:16
-ENV APP_ENV=production
-ENV DATABASE_URL=postgres://db:5432
-LABEL version=1.0
-WORKDIR /app
-USER node
-ARG build=true
-EXPOSE 3000
-ENTRYPOINT [node server.js]
-CMD [npm start]
+FROM node:23-alpine
+WORKDIR /usr/src/app
+COPY  package*.json ./
+RUN npm install
+COPY  . .
+EXPOSE 8083
+CMD ["npm", "start"]

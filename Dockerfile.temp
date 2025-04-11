@@ -1,5 +1,10 @@
-FROM postgres:13
-ENV POSTGRES_USER=user
-ENV POSTGRES_PASSWORD=password
-ENV POSTGRES_DB=mydatabase
-EXPOSE 5432
+FROM node:22
+ENV APP_ENV=production
+ENV DATABASE_URL=postgres://db:5432
+LABEL version=1.0
+WORKDIR /app
+USER node
+ARG build=true
+EXPOSE 3000
+ENTRYPOINT [node server.js]
+CMD [npm start]

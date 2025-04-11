@@ -1,1 +1,1 @@
-FROM node:23-alpine
+FROM node:8

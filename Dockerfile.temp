@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20
 ENV APP_ENV=production
 ENV DATABASE_URL=postgres://db:5432
 LABEL version=1.0

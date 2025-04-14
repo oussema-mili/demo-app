@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:12
 WORKDIR /app
 COPY  target/*.jar app.jar
 RUN pip install -r requirements.txt

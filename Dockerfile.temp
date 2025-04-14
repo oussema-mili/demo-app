@@ -1,7 +1,6 @@
-FROM python:3.9
+FROM openjdk:11
 WORKDIR /app
-COPY  requirements.txt ./
+COPY  target/*.jar app.jar
 RUN pip install -r requirements.txt
-COPY  . .
-EXPOSE 5000
-CMD ["python", "app.py"]
+EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]

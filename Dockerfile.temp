@@ -1,6 +1,7 @@
-FROM openjdk:12
+FROM node:22-alpine
 WORKDIR /app
-COPY  target/*.jar app.jar
-RUN pip install -r requirements.txt
-EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+COPY  package*.json ./
+RUN npm install
+COPY  . .
+EXPOSE 3000
+CMD ["npm start"]

@@ -1,5 +1,6 @@
-FROM postgres:13
-ENV POSTGRES_USER=user
-ENV POSTGRES_PASSWORD=password
-ENV POSTGRES_DB=mydatabase
-EXPOSE 5432
+FROM openjdk:11
+WORKDIR /app
+COPY  target/*.jar app.jar
+RUN pip install -r requirements.txt
+EXPOSE 8080
+CMD ["java", "-jar", "app.jar"]

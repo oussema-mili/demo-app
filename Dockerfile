@@ -1,7 +1,5 @@
-FROM node:22-alpine
-WORKDIR /app
-COPY  package*.json ./
-RUN npm install
-COPY  . .
-EXPOSE 3000
-CMD ["npm start"]
+FROM postgres:13
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_DB=mydatabase
+EXPOSE 5432

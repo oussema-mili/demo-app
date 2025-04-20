@@ -1,6 +1,5 @@
-FROM openjdk:11
+FROM test
 WORKDIR /app
-COPY  target/*.jar app.jar
-RUN pip install -r requirements.txt
-EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+COPY  publish/ .
+EXPOSE 5000
+CMD ["dotnet", "MyApp.dll"]

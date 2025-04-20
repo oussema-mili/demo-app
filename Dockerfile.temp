@@ -1,6 +1,1 @@
-FROM postgres:13
-ENV POSTGRES_USER=user
-ENV POSTGRES_PASSWORD=password
-ENV POSTGRES_DB=mydatabase
-ENV POSTGRES_DB=fff
-EXPOSE 5432
+FROM node:23-alpine

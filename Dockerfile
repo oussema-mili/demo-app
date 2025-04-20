@@ -1,5 +1,6 @@
-FROM test
-WORKDIR /app
-COPY  publish/ .
-EXPOSE 5000
-CMD ["dotnet", "MyApp.dll"]
+FROM postgres:13
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_DB=mydatabase
+ENV POSTGRES_DB=fff
+EXPOSE 5432

@@ -1,9 +1,11 @@
-FROM golang:1.16
+FROM ruby:3.0
 WORKDIR /app
-COPY  go.mod ./
-COPY  go.sum ./
-RUN go mod tidy
-RUN go build -o myapp .
+COPY  Gemfile ./
+COPY  Gemfile.lock ./
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN gem install rails
+RUN bundle install
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 COPY  . .
-EXPOSE 8080
-CMD ["./myapp"]
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]

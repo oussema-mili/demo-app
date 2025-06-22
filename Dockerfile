@@ -1,6 +1,7 @@
-FROM node:20-alpine
+FROM node:22-alpine
 WORKDIR /app
-USER node
-VOLUME /data
-EXPOSE 3000
-CMD ["npm", "start"]
+COPY  package*.json ./
+RUN npm install
+COPY  . .
+EXPOSE 3007
+CMD ["npm start"]

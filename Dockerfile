@@ -1,5 +1,3 @@
-FROM node:23-alpine
+FROM node:20
 WORKDIR /app
-VOLUME /data
-EXPOSE 3010
 CMD ["npm", "start"]
